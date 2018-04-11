@@ -1,1 +1,1 @@
-# cyclic_peptide_protocol_capture
+Protocol capture for design of cyclic peptides mimicking antibody CDRH3 loops. This protocol is described in Sevy et al 2018. Here I describe an example of how to run the full protocol on an anti-influenza antibody C05.
