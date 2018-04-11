@@ -1,0 +1,10 @@
+-in:file:fullatom
+-out:file:fullatom
+-database /path/to/Rosetta/main/database
+-ex1
+-use_input_sc
+-nstruct 10
+-parser:protocol relax_cst.xml
+-out:path:pdb models/
+-scorefile relax.fasc 
+-s C05_H3_Ag_renum.pdb

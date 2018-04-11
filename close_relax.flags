@@ -1,0 +1,7 @@
+-out:suffix _close_relax
+-scorefile C05_close_relax.fasc 
+-parser:protocol close_relax.xml
+-fix_disulf disulf.txt 
+-out:path:pdb models/
+-nstruct 1000
+-ex1

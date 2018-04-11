@@ -1,0 +1,25 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+	</SCOREFXNS>
+	<TASKOPERATIONS>
+		<InitializeFromCommandline name="ifcl" />
+		<RestrictToRepacking name="rtr" />
+	</TASKOPERATIONS>
+	<MOVERS>		
+
+		<PeptideStubMover name="add_cys" update_pdb_numbering="1" >
+			<Prepend resname="CYD" anchor_rsd="1" />
+			<Append resname="CYD" /> 
+		</PeptideStubMover>
+
+        <DeclareBond name="cyclize" res1="1" atom1="SG" res2="28" atom2="SG" rebuild_fold_tree="1" />
+	</MOVERS>
+	<FILTERS>
+	</FILTERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="add_cys" />
+		<Add mover="cyclize" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>

@@ -1,0 +1,30 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<talaris_rwt weights="talaris2013_cst.wts" />
+	</SCOREFXNS>
+	<FILTERS>
+	</FILTERS>
+	<TASKOPERATIONS>
+		<InitializeFromCommandline name="ifcl"/>
+		<RestrictToRepacking name="rtr"/>
+		<RestrictToInterfaceVector name="rtiv" chain1_num="1" chain2_num="2" CB_dist_cutoff="10.0" nearby_atom_cutoff="5.5" vector_angle_cutoff="75" vector_dist_cutoff="9.0" />
+		<ReadResfile name="mutres" filename="%%resfile%%.resfile" />
+	</TASKOPERATIONS>
+	<MOVERS>
+		<PackRotamersMover name="mutate" task_operations="ifcl,mutres" />
+		<FastRelax name="relax" task_operations="ifcl,rtr" scorefxn="talaris_rwt" />
+		<AtomCoordinateCstMover name="cst" />
+		<VirtualRoot name="root" removable="1" />
+		<VirtualRoot name="remove" remove="1" />
+		<InterfaceAnalyzerMover name="ddg" scorefxn="talaris2013" packstat="0" pack_input="0" pack_separated="1" fixedchains="H" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="mutate" />
+		<Add mover_name="root" />
+		<Add mover_name="cst" />
+		<Add mover_name="relax" />
+		<Add mover_name="remove" />
+		<Add mover_name="ddg" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="talaris2013" />
+</ROSETTASCRIPTS>
